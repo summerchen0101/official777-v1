@@ -79,9 +79,9 @@ function bootsNavBar() {
         //Selection Class
         index.find('ul.navbar-nav > li').each(function () {
           var dropDown = $('ul.dropdown-menu', this),
-            megaMenu = $('ul.megamenu-content', this)
+            menu = $('ul.menu-content', this)
           dropDown.closest('li').addClass('dropdown')
-          megaMenu.closest('li').addClass('megamenu-fw')
+          menu.closest('li').addClass('menu-fw')
         })
 
         var getName = $('.storage-name').html()
@@ -273,7 +273,7 @@ function bootsNavBar() {
           })
 
           // Megamenu style
-          $('.megamenu-fw', this).each(function () {
+          $('.menu-fw', this).each(function () {
             $('.col-menu', this).each(function () {
               $('.content', this).addClass('animated')
               $('.content', this).stop().fadeOut()
@@ -399,7 +399,7 @@ function bootsNavBar() {
               e.stopPropagation()
             })
 
-            $('.megamenu-fw', this).each(function () {
+            $('.menu-fw', this).each(function () {
               $('.title', this).off('click')
               $('a.dropdown-toggle', this).off('click')
               $('.content').removeClass('animated')

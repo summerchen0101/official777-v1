@@ -6,7 +6,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 function AppRedirect() {
   const router = useRouter()
   useEffect(() => {
-    localOpen('megarich://demo' + location.search)
+    localOpen('777://demo' + location.search)
     setTimeout(() => {
       router.push('/home')
     }, 1000 * 10)
