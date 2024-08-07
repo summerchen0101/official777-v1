@@ -1,14 +1,12 @@
-import useCdnUrl from '@/hooks/useCdnUrl'
 import bootsNavBar from '@/public/js/bootsnav'
 import useMe from '@/services/useMe'
-import { handleComingSoon, toCurrency } from '@/utils'
+import { useStore } from '@/store/useStore'
+import { useUserStore } from '@/store/useUserStore'
+import { showLoginPopup, toCurrency } from '@/utils'
 import useAuthRoute from '@/utils/useAuthRoute'
-import { showLoginPopup } from '@/utils'
+import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { useUserStore } from '@/store/useUserStore'
-import { useRouter } from 'next/dist/client/router'
-import { useStore } from '@/store/useStore'
 
 type Props = {
   pure?: boolean

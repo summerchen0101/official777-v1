@@ -3,9 +3,7 @@ import create from 'zustand'
 
 interface ClientEnv {
   apiBaseUrl: string
-  cdnBaseUrl: string
   canRecharge: boolean
-  summerApiPath: string
 }
 
 interface IState {
@@ -32,8 +30,6 @@ interface IState {
 export const useStore = create<IState>((set) => ({
   clientEnv: {
     apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL as string,
-    cdnBaseUrl: process.env.NEXT_PUBLIC_CDN_BASE_URL as string,
-    summerApiPath: process.env.NEXT_PUBLIC_SUMMER_API_PATH as string,
     canRecharge: true,
   },
   setClientEnv: (clientEnv) => set({ clientEnv }),

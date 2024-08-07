@@ -1,4 +1,3 @@
-import useCdnUrl from '@/hooks/useCdnUrl'
 import useMe from '@/services/useMe'
 import { useUserStore } from '@/store/useUserStore'
 import { toCurrency } from '@/utils'
