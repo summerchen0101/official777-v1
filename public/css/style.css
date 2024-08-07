@@ -259,7 +259,7 @@ a:active {
 .window-box-logout {
   position: fixed;
   width: 215px;
-  height: 395px;
+  height: 398px;
   padding: 0;
   top: 25%;
   left: 0.2%;
@@ -1391,7 +1391,7 @@ thead > tr > th {
   .window-box-logout {
     top: 19%;
     width: 180px;
-    height: 330px;
+    height: 371px;
   }
   .logout-id,
   .logout-gold,
@@ -1466,7 +1466,7 @@ thead > tr > th {
   .window-box-logout {
     top: 18%;
     width: 200px;
-    height: 330px;
+    height: 371px;
   }
   .logout-id,
   .logout-gold,

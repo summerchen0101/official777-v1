@@ -9,7 +9,6 @@ function UserInfoFloat() {
   const { data: user } = useMe()
   const router = useRouter()
   const clearUser = useUserStore((s) => s.clearUser)
-  const toCdnUrl = useCdnUrl()
 
   const handleLogout = () => {
     clearUser()
@@ -25,7 +24,7 @@ function UserInfoFloat() {
       <div className="logout-box">
         <div className="logut-avatar">
           <img
-            src={toCdnUrl(`/avatar/${user?.avatarID}.png`)}
+            src="/images/avatar.png"
             alt=""
             className="img-circle img-responsive center-block"
           />

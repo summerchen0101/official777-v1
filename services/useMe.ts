@@ -6,14 +6,12 @@ import { useEffect } from 'react'
 import useSWR from 'swr'
 
 export interface MeRes extends ResBase {
-  id: number
+  id: string
   nickname: string
   avatarID: number
   coin: number
   vipLevel: number
-  vipExpAmount: number
   email: string
-  countryCode: string
   cellphone: string
   phoneVerified: number
   isSecondPasswordSet: number
@@ -30,6 +28,7 @@ export interface MeRes extends ResBase {
   gender: number
   nickNameRemainingTimes: number
   paymentPoint: number
+  vipExpAmount: number
 }
 
 function useMe() {

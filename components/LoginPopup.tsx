@@ -33,7 +33,6 @@ function LoginPopup() {
     886: '886(台灣)',
   }
 
-  const toCdnUrl = useCdnUrl()
   const [count, setCount] = useState(0)
   const { handler: sendSms, isLoading: isSmsLoading } = useSendSms()
   useInterval(() => {
@@ -138,7 +137,8 @@ function LoginPopup() {
       digitCode: d.code,
       type: 1,
     })
-    if (res?.ok) {
+    console.log(res)
+    if (res?.accessToken) {
       setCacheAcc(isRemember ? d.phone : '')
       setTokenInfo({
         accessToken: res.accessToken,

@@ -10,7 +10,7 @@ function NewsBox() {
   const [type, setType] = useState<NewsType>(NewsType.ALL)
   const [page, setPage] = useState(1)
   const { list: newsList, paginator } = useNewsList({ type, page, perpage: 5 })
-  const [currentId, setCurrentId] = useState<string>()
+  const [currentId, setCurrentId] = useState<number>()
   const newsMap = useMemo(() => {
     return keyBy(newsList, (t) => t.id)
   }, [newsList])
@@ -19,7 +19,7 @@ function NewsBox() {
     if (currentId) return newsMap[currentId]
   }, [newsMap, currentId])
 
-  const showDetail = (id: string) => {
+  const showDetail = (id: number) => {
     setCurrentId(id)
     const layer = $('#hw-overlay')
     const layerwrap = layer.find('.hw-layer-wrap')
@@ -35,76 +35,82 @@ function NewsBox() {
   }
 
   return (
-    <section className="news" id="news">
-      <div className="title-box wow flipInX" data-wow-duration="1s">
+    <div className="content">
+      <div className="content-title-box">
         <img
-          src="/images/title_news.png"
+          src="images/news/title_news.png"
           alt=""
           className="img-responsive center-block"
         />
       </div>
-      <div className="news-content">
-        <div
-          className="news-box wow bounceInRight"
-          data-wow-delay="0.2s"
-          data-wow-duration="2s"
-        >
-          <div className="tabbox">
-            <div className="tabs tabs-index">
-              <ul className="menubar">
-                {Object.entries(newsTypeMap).map(([key, label]) => (
-                  <li
-                    key={key}
-                    onClick={() => setType(key as NewsType)}
-                    className={key === type ? 'active' : ''}
-                  >
-                    <a className="menubtn">{label}</a>
-                  </li>
-                ))}
-              </ul>
-              <hr className="float-none" />
-              <div className="h-5"></div>
-              {/* <hr /> */}
-              <div className="frame_content_all">
-                {/*TAB1最新*/}
-                <div className="tab-content">
-                  <table>
-                    <tbody>
-                      {newsList.map((t) => (
-                        <tr key={t.id}>
-                          <td>
-                            <p>【{newsTypeMap[t.type]}】</p>
-                          </td>
-                          <td>
-                            <a
-                              className="show-layer"
-                              onClick={() => showDetail(t.id)}
-                            >
-                              {t.title}
-                            </a>
-                          </td>
-                          <td>
-                            <p>
-                              {format(new Date(t.created_at), 'yyyy/MM/dd')}
-                            </p>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  <Pagination
-                    page={page}
-                    onPageChange={setPage}
-                    totalPage={paginator.totalPage}
-                  />
+      <div className="tab-content-box">
+        <div className="ranking-box">
+          <div className="ranking-box-gold">
+            <div className="ranking-box-goldline">
+              <div className="ranking-box-black" style={{ padding: '10% 2%' }}>
+                <div className="content-box">
+                  <div className="tabbox">
+                    <div className="tabs tabs-index">
+                      <ul className="menubar">
+                        {Object.entries(newsTypeMap).map(([key, label]) => (
+                          <li
+                            key={key}
+                            onClick={() => setType(key as NewsType)}
+                            className={key === type ? 'active' : ''}
+                          >
+                            <a className="menubtn">{label}</a>
+                          </li>
+                        ))}
+                      </ul>
+                      <hr className="float-none" />
+                      <hr />
+                      <div className="frame_content_all">
+                        {/*TAB1最新*/}
+                        <div id="tab-1" className="tab-content">
+                          <table>
+                            <tbody>
+                              {newsList.map((t) => (
+                                <tr key={t.id}>
+                                  <td>
+                                    <p>【{newsTypeMap[t.type]}】</p>
+                                  </td>
+                                  <td>
+                                    <a
+                                      className="show-layer"
+                                      onClick={() => showDetail(t.id)}
+                                    >
+                                      {t.title}
+                                    </a>
+                                  </td>
+                                  <td>
+                                    <p>
+                                      {format(
+                                        new Date(t.startAtMs),
+                                        'yyyy/MM/dd',
+                                      )}
+                                    </p>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                          <Pagination
+                            page={page}
+                            onPageChange={setPage}
+                            totalPage={paginator?.totalPage || 1}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <hr className="float-none" />
+                  </div>
                 </div>
               </div>
             </div>
-            <hr className="float-none" />
           </div>
         </div>
       </div>
-
+      <hr className="float-none" />
       {newsList.length && (
         <div
           className="hw-overlay"
@@ -121,21 +127,22 @@ function NewsBox() {
               }}
             >
               <h6>
-                {news?.created_at
-                  ? format(new Date(news?.created_at), 'yyyy/MM/dd')
+                {news?.startAtMs
+                  ? format(new Date(news?.startAtMs), 'yyyy/MM/dd')
                   : ''}
               </h6>
               <hr />
               <h1>{news?.title}</h1>
               <hr />
               <div
+                className="whitespace-pre-line"
                 dangerouslySetInnerHTML={{ __html: news?.content || '' }}
               ></div>
             </div>
           </div>
         </div>
       )}
-    </section>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
+import HoverImg from '@/components/HoverImg'
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
-import useCdnUrl from '@/hooks/useCdnUrl'
 import { reportCategory } from '@/lib/report'
 import useMe from '@/services/useMe'
 import useTicketCreate from '@/services/useTicketCreate'
@@ -8,11 +8,8 @@ import useTicketFields from '@/services/useTicketFields'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import cs from 'classnames'
-import HoverImg from '@/components/HoverImg'
 
 function ContactPage() {
-  const toCdnUrl = useCdnUrl()
   const router = useRouter()
   // const { list: ticketOpts } = useTicketOpts()
   const { list: formFields } = useTicketFields()

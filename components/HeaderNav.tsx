@@ -16,7 +16,6 @@ type Props = {
 function HeaderNav({ pure }: Props) {
   const { canRecharge } = useStore((s) => s.clientEnv)
   const { data: user } = useMe()
-  const toCdnUrl = useCdnUrl()
   const toAuthRoute = useAuthRoute()
 
   const router = useRouter()
@@ -82,7 +81,7 @@ function HeaderNav({ pure }: Props) {
                   <li className="nav-li-text hidden visible-xs">
                     <div className="logut-avatar">
                       <img
-                        src={toCdnUrl(`/avatar/${user?.avatarID}.png`)}
+                        src="/avatar.png"
                         alt=""
                         className="img-circle img-responsive center-block"
                       />

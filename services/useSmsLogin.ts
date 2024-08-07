@@ -16,6 +16,11 @@ export interface SmsLoginRes extends ResBase {
   refreshToken: string
   tokenType: string
   expiresIn: number
+  Code: string
+  Update: string
+  isNewOAuthAccount: boolean
+  errCode: string
+  errMsg: string
 }
 
 export default function useSmsLogin() {

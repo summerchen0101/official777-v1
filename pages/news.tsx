@@ -13,7 +13,7 @@ function NewsPage() {
   const [type, setType] = useState<NewsType>(NewsType.ALL)
   const [page, setPage] = useState(1)
   const { list: newsList, paginator } = useNewsList({ type, page, perpage: 15 })
-  const [currentId, setCurrentId] = useState<string>()
+  const [currentId, setCurrentId] = useState<number>()
   const newsMap = useMemo(() => {
     return keyBy(newsList, (t) => t.id)
   }, [newsList])
@@ -22,7 +22,7 @@ function NewsPage() {
     if (currentId) return newsMap[currentId]
   }, [newsMap, currentId])
 
-  const showDetail = (id: string) => {
+  const showDetail = (id: number) => {
     setCurrentId(id)
     const layer = $('#hw-overlay')
     const layerwrap = layer.find('.hw-layer-wrap')
@@ -44,7 +44,6 @@ function NewsPage() {
         data-wow-delay="0.2s"
         id="header-box"
       >
-        <LogoBox />
         <div className="content-box">
           <img
             src="/images/news/header_news.jpg"
@@ -90,8 +89,7 @@ function NewsPage() {
                           ))}
                         </ul>
                         <hr className="float-none" />
-                        <div className="h-10"></div>
-
+                        <hr />
                         <div className="frame_content_all">
                           {/*TAB1最新*/}
                           <div className="tab-content">
@@ -113,7 +111,7 @@ function NewsPage() {
                                     <td>
                                       <p>
                                         {format(
-                                          new Date(t.created_at),
+                                          new Date(t.startAtMs),
                                           'yyyy/MM/dd',
                                         )}
                                       </p>
@@ -125,7 +123,7 @@ function NewsPage() {
                             <Pagination
                               page={page}
                               onPageChange={setPage}
-                              totalPage={paginator.totalPage}
+                              totalPage={paginator?.totalPage || 1}
                             />
                           </div>
                         </div>
@@ -140,7 +138,7 @@ function NewsPage() {
         </div>
         <hr className="float-none" />
       </div>
-      {newsList.length && (
+      {newsList.length ? (
         <div
           className="hw-overlay"
           id="hw-overlay"
@@ -156,20 +154,21 @@ function NewsPage() {
               }}
             >
               <h6>
-                {news?.created_at
-                  ? format(new Date(news?.created_at), 'yyyy/MM/dd')
+                {news?.startAtMs
+                  ? format(new Date(news?.startAtMs), 'yyyy/MM/dd')
                   : ''}
               </h6>
               <hr />
               <h1>{news?.title}</h1>
               <hr />
               <div
+                style={{ whiteSpace: 'pre-line' }}
                 dangerouslySetInnerHTML={{ __html: news?.content || '' }}
               ></div>
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </PageLayout>
   )
 }
