@@ -7,18 +7,12 @@ import { AxiosResponse } from 'axios'
 import useSWR from 'swr'
 
 export type News = {
-  id: number
+  id: string
   title: string
   content: string
-  startAtMs: number
-  endAtMs: number
-  type: string
-  isActive: boolean
-  platform: number
-  link: string
-  isNewWin: boolean
-  isTop: boolean
-  sort: number
+  category: number
+  createTimeMs: number
+  isRedirect: number
 }
 
 export interface Meta {
@@ -26,37 +20,30 @@ export interface Meta {
 }
 
 export interface NewsListRes extends ResBase {
-  data: News[]
+  news: News[]
   meta: Meta
 }
 
 export interface NewsListReq extends ListReqBase {
-  // keyword?: string
-  // start_at?: number
-  // end_at?: number
-  // is_active?: boolean
-  type?: NewsType
+  category?: NewsType
 }
 
-function useNewsList({ type: _type, page, perpage }: NewsListReq) {
-  const { canRecharge } = useStore((s) => s.clientEnv)
+function useNewsList({ category, page, perpage }: NewsListReq) {
   const request = useRequest()
-  const type = _type !== NewsType.ALL ? _type : undefined
-  const platform = canRecharge ? SitePlatform.MAIN : SitePlatform.SECONDARY
   const { data, isValidating } = useSWR(
-    ['public/apis/v1/news/list', type, platform, page, perpage],
-    (url, type, platform, page, perpage) =>
+    ['public/apis/v1/news/list', category, page, perpage],
+    (url, category, page, perpage) =>
       request<NewsListRes>({
         url,
         method: 'get',
         config: {
-          params: { typeIn: type, platform, page, perpage },
+          params: { category, page, perpage },
         },
       }),
   )
 
   return {
-    list: data?.data || [],
+    list: data?.news || [],
     paginator: data?.meta?.pagination,
     isLoading: isValidating,
   }

@@ -9,11 +9,11 @@ export enum SerialNumType {
 }
 
 export enum NewsType {
-  ALL = 'ALL',
-  SERVICE = 'SERVICE',
-  GAME = 'GAME',
-  EVENT = 'EVENT',
-  OPERATION = 'OPERATION',
+  ALL = 0,
+  SERVICE = 1,
+  GAME = 2,
+  EVENT = 3,
+  OPERATION = 4,
 }
 
 export enum EventType {

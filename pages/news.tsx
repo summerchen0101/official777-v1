@@ -10,10 +10,14 @@ import { useMemo, useRef, useState } from 'react'
 
 function NewsPage() {
   const popRef = useRef<HTMLDivElement>(null)
-  const [type, setType] = useState<NewsType>(NewsType.ALL)
+  const [category, setCategory] = useState<NewsType>(NewsType.ALL)
   const [page, setPage] = useState(1)
-  const { list: newsList, paginator } = useNewsList({ type, page, perpage: 15 })
-  const [currentId, setCurrentId] = useState<number>()
+  const { list: newsList, paginator } = useNewsList({
+    category,
+    page,
+    perpage: 15,
+  })
+  const [currentId, setCurrentId] = useState<string>()
   const newsMap = useMemo(() => {
     return keyBy(newsList, (t) => t.id)
   }, [newsList])
@@ -22,7 +26,7 @@ function NewsPage() {
     if (currentId) return newsMap[currentId]
   }, [newsMap, currentId])
 
-  const showDetail = (id: number) => {
+  const showDetail = (id: string) => {
     setCurrentId(id)
     const layer = $('#hw-overlay')
     const layerwrap = layer.find('.hw-layer-wrap')
@@ -81,8 +85,8 @@ function NewsPage() {
                           {Object.entries(newsTypeMap).map(([key, label]) => (
                             <li
                               key={key}
-                              onClick={() => setType(key as NewsType)}
-                              className={key === type ? 'active' : ''}
+                              onClick={() => setCategory(+key)}
+                              className={+key === category ? 'active' : ''}
                             >
                               <a className="menubtn">{label}</a>
                             </li>
@@ -98,7 +102,7 @@ function NewsPage() {
                                 {newsList.map((t) => (
                                   <tr key={t.id}>
                                     <td>
-                                      <p>【{newsTypeMap[t.type]}】</p>
+                                      <p>【{newsTypeMap[t.category]}】</p>
                                     </td>
                                     <td>
                                       <a
@@ -111,7 +115,7 @@ function NewsPage() {
                                     <td>
                                       <p>
                                         {format(
-                                          new Date(t.startAtMs),
+                                          new Date(t.createTimeMs),
                                           'yyyy/MM/dd',
                                         )}
                                       </p>
@@ -154,8 +158,8 @@ function NewsPage() {
               }}
             >
               <h6>
-                {news?.startAtMs
-                  ? format(new Date(news?.startAtMs), 'yyyy/MM/dd')
+                {news?.createTimeMs
+                  ? format(new Date(news?.createTimeMs), 'yyyy/MM/dd')
                   : ''}
               </h6>
               <hr />
