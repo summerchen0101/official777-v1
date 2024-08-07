@@ -395,11 +395,7 @@ function HeaderNav({ pure }: Props) {
               ) : null}
 
               <li className="nav-li-icon">
-                <a
-                  href="https://www.facebook.com/Online539"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="#" target="_blank" rel="noreferrer">
                   <img
                     src="/images/menu_facebook.png"
                     alt=""
@@ -408,11 +404,7 @@ function HeaderNav({ pure }: Props) {
                 </a>
               </li>
               <li className="nav-li-icon">
-                <a
-                  href="https://lin.ee/bkrZ0cD"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="#" target="_blank" rel="noreferrer">
                   <img
                     src="/images/menu_line.png"
                     alt=""
@@ -421,11 +413,7 @@ function HeaderNav({ pure }: Props) {
                 </a>
               </li>
               <li className="nav-li-icon">
-                <a
-                  href="https://www.tiktok.com/@online_539"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="#" target="_blank" rel="noreferrer">
                   <img
                     src="/images/menu_tiktok.png"
                     alt=""
@@ -434,11 +422,7 @@ function HeaderNav({ pure }: Props) {
                 </a>
               </li>
               <li className="nav-li-icon">
-                <a
-                  href="https://www.instagram.com/online__539"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="#" target="_blank" rel="noreferrer">
                   <img
                     src="/images/menu_instagram.png"
                     alt=""
@@ -447,11 +431,7 @@ function HeaderNav({ pure }: Props) {
                 </a>
               </li>
               <li className="nav-li-icon">
-                <a
-                  href="https://www.youtube.com/channel/UCeCfX4g4MOJnQeYQ2igb_lw"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="#" target="_blank" rel="noreferrer">
                   <img
                     src="/images/menu_youtube.png"
                     alt=""

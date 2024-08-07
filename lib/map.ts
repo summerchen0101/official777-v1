@@ -165,10 +165,8 @@ export const gameMap: StringMap = {
 }
 
 export const appUrlMap: StringMap = {
-  [Platform.IOS]:
-    'https://apps.apple.com/tw/app/%E5%A4%A7%E9%A0%AD%E5%AE%B6%E5%A8%9B%E6%A8%82%E5%9F%8E/id1595039719',
-  [Platform.Android]:
-    'https://play.google.com/store/apps/details?id=com.Rich.MegaRich&hl=zh_TW',
+  [Platform.IOS]: '#',
+  [Platform.Android]: '#',
 }
 
 export const vipLevelMap: StringMap = {

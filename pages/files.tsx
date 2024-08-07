@@ -47,11 +47,7 @@ function FilesPage() {
                     <br />
                     <div className="row">
                       <div className="col-lg-4 btn-img-hover">
-                        <a
-                          href="https://resource-cdn.bigboss101.com/official/download/兆豐遊戲全球科技_領獎單.pdf"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
+                        <a href="#" target="_blank" rel="noreferrer">
                           <HoverImg
                             src="/images/service/btn_prize.png"
                             activeSrc="/images/service/btn_prize_active.png"
@@ -61,11 +57,7 @@ function FilesPage() {
                         </a>
                       </div>
                       <div className="col-lg-4 btn-img-hover">
-                        <a
-                          href="https://resource-cdn.bigboss101.com/official/download/兆豐遊戲全球科技_手機號碼暨玩家名稱修改申請單.pdf"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
+                        <a href="#" target="_blank" rel="noreferrer">
                           <HoverImg
                             src="/images/service/btn_revise.png"
                             activeSrc="/images/service/btn_revise_active.png"
@@ -75,11 +67,7 @@ function FilesPage() {
                         </a>
                       </div>
                       <div className="col-lg-4 btn-img-hover">
-                        <a
-                          href="https://resource-cdn.bigboss101.com/official/download/兆豐遊戲全球科技_帳號證明暨遊戲歷程申請單.pdf"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
+                        <a href="#" target="_blank" rel="noreferrer">
                           <HoverImg
                             src="/images/service/btn_list.png"
                             activeSrc="/images/service/btn_list_active.png"

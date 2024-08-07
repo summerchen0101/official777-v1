@@ -116,7 +116,7 @@ function VideoBanners() {
           </a>
         </div>
         <a
-          href="https://www.youtube.com/channel/UCeCfX4g4MOJnQeYQ2igb_lw"
+          href="#"
           target="_blank"
           className="btn-morevideo mx-auto"
           rel="noreferrer"

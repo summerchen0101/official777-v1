@@ -104,11 +104,7 @@ function ContactPage() {
                     <div className="row">
                       <div className="col-lg-2 btn-img-hover"></div>
                       <div className="col-lg-4 btn-img-hover">
-                        <a
-                          href="https://line.me/R/ti/p/@online539"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
+                        <a href="#" target="_blank" rel="noreferrer">
                           <HoverImg
                             src="/images/service/btn_line.png"
                             activeSrc="images/service/btn_line_active.png"
