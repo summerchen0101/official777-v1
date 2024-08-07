@@ -5,28 +5,8 @@ function VideoBanners() {
   const videoList = [
     {
       key: 'HVH_rGa_vC4',
-      thumbnail: '形象片.jpg',
-      name: '形象',
-    },
-    {
-      key: 'Z2bHQoFElxo',
-      thumbnail: '魔龍20.jpg',
-      name: '魔龍',
-    },
-    {
-      key: '5sOi_gm_j5U',
-      thumbnail: '7pk.jpg',
-      name: '7PK',
-    },
-    {
-      key: 'RryoJOYZpdc',
-      thumbnail: '九尾狐.jpg',
-      name: '九尾狐',
-    },
-    {
-      key: 'WqVpeBZCl74',
-      thumbnail: '小瑪莉.jpg',
-      name: '小瑪莉',
+      thumbnail: 'video_comingsoon.jpg',
+      name: 'ComingSoon',
     },
   ]
 
@@ -91,7 +71,7 @@ function VideoBanners() {
                   <img
                     src={`/images/video_thumb/${t.thumbnail}`}
                     alt={t.name}
-                    className="center-block img-responsive"
+                    className="center-block img-responsive rounded-3xl"
                     onClick={(e) => e.preventDefault()}
                   />
                 </a>
