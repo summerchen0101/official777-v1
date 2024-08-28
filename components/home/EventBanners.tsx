@@ -2,15 +2,27 @@ import React, { memo, useEffect } from 'react'
 
 const sliders = [
   {
-    imgSrc: '/images/eventbanner/announce01.png',
+    imgSrc: '/images/eventbanner/1_雷神之錘.jpg',
     link: '',
   },
   {
-    imgSrc: '/images/eventbanner/announce01.png',
+    imgSrc: '/images/eventbanner/2_魔龍傳奇.jpg',
     link: '',
   },
   {
-    imgSrc: '/images/eventbanner/announce01.png',
+    imgSrc: '/images/eventbanner/3_多福多發.jpg',
+    link: '',
+  },
+  {
+    imgSrc: '/images/eventbanner/4_招財貓.jpg',
+    link: '',
+  },
+  {
+    imgSrc: '/images/eventbanner/5_鍾馗.jpg',
+    link: '',
+  },
+  {
+    imgSrc: '/images/eventbanner/6_幸運777.jpg',
     link: '',
   },
 ]
